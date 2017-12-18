@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::group(['middleware' => ['web']], function () {
-  Route::get('/tweets', 'TweetsController@index');
-});
+Route::auth();
+Route::get('/', 'TweetsController@index');
+Route::get('/tweets', 'TweetsController@index');
+Route::get('/tweets/create', 'TweetsController@create');
+Route::post('/tweets', 'TweetsController@store');
+Route::get('/users/{id}', 'UsersController@show');
+Route::get('/tweets/{id}/delete', 'TweetsController@destroy');
+Route::get('/tweets/{id}/edit', 'TweetsController@edit');
+Route::patch('/tweets/{id}', 'TweetsController@update');
