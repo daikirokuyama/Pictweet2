@@ -13,10 +13,7 @@
 
 Route::auth();
 Route::get('/', 'TweetsController@index');
-Route::get('/tweets', 'TweetsController@index');
-Route::get('/tweets/create', 'TweetsController@create');
-Route::post('/tweets', 'TweetsController@store');
-Route::get('/users/{id}', 'UsersController@show');
+Route::resource('tweets', 'TweetsController');
 Route::get('/tweets/{id}/delete', 'TweetsController@destroy');
-Route::get('/tweets/{id}/edit', 'TweetsController@edit');
-Route::patch('/tweets/{id}', 'TweetsController@update');
+Route::resource('users', 'UsersController', ['only' => 'show']);
+Route::resource('tweets.comments', 'CommentsController');

@@ -12,7 +12,7 @@ class TweetsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', array('except' => 'index'));
+        $this->middleware('auth', ['except' => 'index']);
     }
 
     public function index()
@@ -30,21 +30,22 @@ class TweetsController extends Controller
     {
         Tweet::create(
             array(
-            'image' => $request->image,
-            'text' => $request->text,
-            'user_id' => Auth::user()->id,
+            'image'   => $request->image,
+            'text'    => $request->text,
+            'user_id' => Auth::user()->id
             )
         );
+
         return view('tweets.store');
     }
 
     public function destroy($id)
     {
-        if (Tweet::find($id)->user_id == Auth::user()->id) {
+        if (Auth::user()->id = Tweet::find($id)->user->id) {
             Tweet::destroy($id);
         }
 
-        return view('tweets/destroy');
+        return view('tweets.destroy');
     }
 
     public function edit($id)
@@ -55,13 +56,21 @@ class TweetsController extends Controller
 
     public function update($id, Request $request)
     {
-        $tweet = Tweet::find($id);
-        $tweet->update(
+      // eval(\Psy\SH());
+        Tweet::find($id)->update(
             array(
-            'image' => $request->image,
-            'text' => $request->text,
+            'text'  => $request->text,
+            'image' => $request->image
             )
         );
+
         return view('tweets.update');
+    }
+
+    public function show($id)
+    {
+        $tweet = Tweet::with('comments')->find($id);
+        $comments = $tweet->comments;
+        return view('tweets.show')->with(['tweet' => $tweet, 'comments' => $comments]);
     }
 }
