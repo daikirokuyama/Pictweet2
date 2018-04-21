@@ -28,6 +28,7 @@ class TweetsController extends Controller
 
     public function store(Request $request)
     {
+
         Tweet::create(
             array(
             'image'   => $request->image,
@@ -56,7 +57,7 @@ class TweetsController extends Controller
 
     public function update($id, Request $request)
     {
-      // eval(\Psy\SH());
+
         Tweet::find($id)->update(
             array(
             'text'  => $request->text,
