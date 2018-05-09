@@ -28,7 +28,6 @@ class TweetsController extends Controller
 
     public function store(Request $request)
     {
-
         Tweet::create(
             array(
             'image'   => $request->image,
@@ -75,5 +74,3 @@ class TweetsController extends Controller
         return view('tweets.show')->with(['tweet' => $tweet, 'comments' => $comments]);
     }
 }
-
-// ctags test
