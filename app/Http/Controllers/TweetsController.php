@@ -17,6 +17,7 @@ class TweetsController extends Controller
 
     public function index()
     {
+        dd(env('hoge'));
         $tweets = Tweet::with('user')->orderBy('id', 'DESC')->paginate(5);
         return view('tweets.index')->with('tweets', $tweets);
     }
