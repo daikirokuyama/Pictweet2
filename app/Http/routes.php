@@ -11,9 +11,9 @@
 |
 */
 
-Route::auth();
-Route::get('/', 'TweetsController@index');
-Route::resource('tweets', 'TweetsController');
-Route::get('/tweets/{id}/delete', 'TweetsController@destroy');
-Route::resource('users', 'UsersController', ['only' => 'show']);
-Route::resource('tweets.comments', 'CommentsController');
+// Route::auth();
+// Route::get('/', 'TweetsController@index');
+// Route::resource('tweets', 'TweetsController');
+// Route::get('/tweets/{id}/delete', 'TweetsController@destroy');
+// Route::resource('users', 'UsersController', ['only' => 'show']);
+// Route::resource('tweets.comments', 'CommentsController');
