@@ -157,6 +157,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
 
     ],
 
