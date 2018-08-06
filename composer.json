@@ -7,7 +7,7 @@
   "require": {
     "php": ">=5.5.9",
     "laravel/framework": "5.3.*",
-    "laravelcollective/html": "5.2",
+    "laravelcollective/html": "5.3",
     "psy/psysh": "@stable",
     "barryvdh/laravel-debugbar": "~2.4"
   },
